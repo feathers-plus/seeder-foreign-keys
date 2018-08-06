@@ -14,7 +14,7 @@
     "release:major": "npm version major && npm publish",
     "changelog": "github_changelog_generator && git add CHANGELOG.md && git commit -am \"Updating changelog\"",
     "lint": "semistandard --fix",
-    "mocha": "DEBUG=see* mocha tests/ --recursive",
+    "mocha": "DEBUG=see1* mocha tests/ --recursive",
     "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- --opts mocha.opts",
     "test": "npm run lint && npm run coverage"
   },
@@ -55,6 +55,7 @@
     "traverse": "^0.6.6"
   },
   "devDependencies": {
+    "@feathersjs/authentication-local": "^1.2.1",
     "chai": "^4.1.2",
     "clone": "^2.1.1",
     "coveralls": "^3.0.0",

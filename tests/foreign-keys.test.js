@@ -40,11 +40,24 @@ const data2 = {
     { _id: 12, name: 'bb', userId: '->users:random:' },
     { _id: 13, name: 'cc', userId: '->users:random:id' },
     { _id: 14, name: 'dd', userId: '->users:random:name' },
-    { _id: 15, name: 'ee', userId: '->users:random:foo' },
+    { _id: 15, name: 'ee', userId: '->users:random:foo' }, // undefined
   ],
 };
 
 const data3 = {
+  users: [
+    { id: 1, name: 'a' },
+    { id: 2, name: 'b' },
+    { id: 3, name: 'c' },
+    { id: 4, name: 'd' },
+  ],
+  posts: [
+    { _id: 11, name: 'aa', userIds: ['->users:next', '->users:next'] },
+    { _id: 12, name: 'bb', userIds: ['->users:next',  '->users:next',  '->users:next'] },
+  ],
+};
+
+const data4 = {
   users: [
     { id: 1, name: 'a' },
     { id: 2, name: 'b' },
@@ -58,7 +71,7 @@ const data3 = {
   ],
 };
 
-const data4 = {
+const data5 = {
   users: [
     { id: 1, name: 'a', foo: { bar: 'a1' }, baz: [{ bar: 'a2' }] },
     { id: 2, name: 'b', foo: { bar: 'b1' }, baz: [{ bar: 'b2' }] },
@@ -71,7 +84,7 @@ const data4 = {
 
 const testOptions = { testModeIndex: true };
 
-describe('types.js - handles types', () => {
+describe('foreign-keys.test.js - handles types', () => {
   describe('no placeholders', () => {
     const ret = clone(data0);
     seederFk(ret);
@@ -108,8 +121,18 @@ describe('types.js - handles types', () => {
   });
 
   describe('next type', () => {
-    it('->users:next & users:curr', () => {
+    it('->users:next', () => {
       const recs = clone(data3);
+      seederFk(recs, testOptions);
+
+      assert.deepEqual(recs.posts, [
+        { _id: 11, name: 'aa', userIds: [1, 2] },
+        { _id: 12, name: 'bb', userIds: [3, 4, 1] },
+      ] );
+    });
+
+    it('->users:next & users:curr', () => {
+      const recs = clone(data4);
       seederFk(recs, testOptions);
 
       assert.deepEqual(recs.posts, [
@@ -122,7 +145,7 @@ describe('types.js - handles types', () => {
     });
 
     it('handles dot notation', () => {
-      const recs = clone(data4);
+      const recs = clone(data5);
       seederFk(recs, testOptions);
 
       assert.deepEqual(recs.posts, [
