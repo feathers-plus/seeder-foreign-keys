@@ -1,5 +1,8 @@
 # Change Log
 
+## [v0.1.1](https://github.com/feathers-plus/seeder-foreign-keys/tree/v0.1.1) (2018-09-08)
+[Full Changelog](https://github.com/feathers-plus/seeder-foreign-keys/compare/v0.1.0...v0.1.1)
+
 ## [v0.1.0](https://github.com/feathers-plus/seeder-foreign-keys/tree/v0.1.0) (2018-08-12)
 
 
