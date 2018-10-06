@@ -1,6 +1,6 @@
 {
   "name": "seeder-foreign-keys",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Replace placeholders in table records with keys & field values from other table records, or with expressions.",
   "main": "lib/",
   "directories": {
