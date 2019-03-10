@@ -73,6 +73,28 @@ describe('expressions.test.js - handles expressions', () => {
     ]);
   });
 
+  it('reference records index', () => {
+    const recs = {
+      posts: [
+        { _id: 11, name: 'aa', index: '=>ctx.dataCurrIndex' },
+        { _id: 12, name: 'bb', index: '=>ctx.dataCurrIndex' },
+        { _id: 13, name: 'cc', index: '=>ctx.dataCurrIndex' },
+        { _id: 14, name: 'dd', index: '=>ctx.dataCurrIndex' },
+        { _id: 15, name: 'ee', index: '=>ctx.dataCurrIndex' }
+      ]
+    };
+
+    seederFk(recs);
+
+    assert.deepEqual(recs.posts, [
+      { _id: 11, name: 'aa', index: 0 },
+      { _id: 12, name: 'bb', index: 1 },
+      { _id: 13, name: 'cc', index: 2 },
+      { _id: 14, name: 'dd', index: 3 },
+      { _id: 15, name: 'ee', index: 4 }
+    ]);
+  });
+
   it('hashPassword', function () {
     this.timeout(10000);
 
