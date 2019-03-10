@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.1.4](https://github.com/feathers-plus/seeder-foreign-keys/tree/v0.1.4) (2019-03-10)
+[Full Changelog](https://github.com/feathers-plus/seeder-foreign-keys/compare/v0.1.3...v0.1.4)
+
+**Merged pull requests:**
+
+- feat: add current records index to ctx object [\#1](https://github.com/feathers-plus/seeder-foreign-keys/pull/1) ([florianbepunkt](https://github.com/florianbepunkt))
+
 ## [v0.1.3](https://github.com/feathers-plus/seeder-foreign-keys/tree/v0.1.3) (2018-10-07)
 [Full Changelog](https://github.com/feathers-plus/seeder-foreign-keys/compare/v0.1.2...v0.1.3)
 
